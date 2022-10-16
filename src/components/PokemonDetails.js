@@ -1,5 +1,4 @@
 import styles from './styles/pokemonDetails.module.css';
-import PokemonItem from './PokemonItem';
 
 const PokemonDetails = (props) => {
     const {pokemonDetails} = props;
@@ -25,8 +24,6 @@ const PokemonDetails = (props) => {
                         src={sprites.back_default} 
                         alt='pic'>
                     </img>
-
-
                 </div>
 
                 <div className={styles.pokemon__buttons}>

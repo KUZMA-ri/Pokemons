@@ -1,5 +1,4 @@
 import styles from './styles/pokemonItem.module.css';
-import PokemonApp from '../PokemonApp';
 
 const PokemonItem = (props) => {
     const {name, getMore} = props;

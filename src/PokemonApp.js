@@ -100,7 +100,8 @@ class PokemonApp extends React.Component {
   state = {
     pokemons: null,
     selectedPokemon: null, 
-    pokemonDetails: null
+    pokemonDetails: null,
+    urlPokemonItem: null
   }
 
   componentDidMount() {
@@ -121,25 +122,27 @@ class PokemonApp extends React.Component {
       return null
     });
     
-    this.setState( {selectedPokemon: selectedPokemon[0].results})  
+    this.setState( {selectedPokemon: selectedPokemon[0].results, urlPokemonItem: urlPokemonItem})  
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {          
     if(this.state.selectedPokemon !== prevState.selectedPokemon) {
       this.fetchData(this.state.selectedPokemon)
     }
+
+    if(this.state.urlPokemonItem !== prevState.urlPokemonItem) {
+      this.fetchData(this.state.urlPokemonItem)
+    }
   }
 
-  fetchData = () => {
+  fetchData = () => {               
     axios.get(`${urlPokemonItem}`) 
       .then((response) => {
         const pokemonDetails = response.data;
         this.setState({ pokemonDetails });
-        console.log();
+        console.log(urlPokemonItem);
       })
   }
-
-
 
   render() {
     const { pokemons, pokemonDetails } = this.state;
@@ -162,8 +165,6 @@ class PokemonApp extends React.Component {
             <PokemonDetails pokemonDetails={pokemonDetails} url={urlPokemonItem} getMore={this.getMore}/>
           )}
           </div>
-
-
         </div>
       </div>
     )
