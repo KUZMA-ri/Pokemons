@@ -1,12 +1,13 @@
+import React from 'react';
 import styles from './styles/pokemonDetails.module.css';
 
 const PokemonDetails = (props) => {
     const {pokemonDetails} = props;
     const { id, name, sprites, getMore} = pokemonDetails;
-    console.log();
 
-    // "next": "https://pokeapi.co/api/v2/pokemon/${id + 1}"
-    // "previous": null,     ("https://pokeapi.co/api/v2/pokemon/${id - 1}")   if (id > 0)
+
+    // const imgPrev = `${sprites.front_default.slice(0, -5)}${id - 1}.png`
+    // const imgNext = `${sprites.back_default.slice(0, -5)}${id + 1}.png`
 
     return(
         <div className={styles.pokemon__details}>
@@ -27,8 +28,18 @@ const PokemonDetails = (props) => {
                 </div>
 
                 <div className={styles.pokemon__buttons}>
-                    <button className={styles.pokemon__prev}>Previous</button>
-                    <button className={styles.pokemon__next}>Next</button>
+                    <button 
+                        className={styles.pokemon__prev}
+                        onClick={() => {
+
+
+                        }}>Previous</button>
+
+                    <button 
+                        className={styles.pokemon__next}
+                        onClick={() => {
+
+                        }}>Next</button>
                 </div>
             </div>
         </div>

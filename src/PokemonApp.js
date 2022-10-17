@@ -98,6 +98,9 @@ let urlPokemonItem = '';
 
 class PokemonApp extends React.Component {
   state = {
+    count: 0,               // счетчик для  записи в адрес (id)
+    next: "https://pokeapi.co/api/v2/pokemon/",   // дописать ${count}/
+    previous: null,
     pokemons: null,
     selectedPokemon: null, 
     pokemonDetails: null,
@@ -107,7 +110,7 @@ class PokemonApp extends React.Component {
   componentDidMount() {
     axios.get(`${urlList}`)
       .then((response) => {
-        const pokemons = response.data.results;  // проверить
+        const pokemons = response.data.results; 
         this.setState({ pokemons });
       })
   }
@@ -122,7 +125,8 @@ class PokemonApp extends React.Component {
       return null
     });
     
-    this.setState( {selectedPokemon: selectedPokemon[0].results, urlPokemonItem: urlPokemonItem})  
+    this.setState( {selectedPokemon: selectedPokemon[0].results, 
+                    urlPokemonItem: urlPokemonItem})  
   }
 
   componentDidUpdate(prevProps, prevState) {          
@@ -140,7 +144,6 @@ class PokemonApp extends React.Component {
       .then((response) => {
         const pokemonDetails = response.data;
         this.setState({ pokemonDetails });
-        console.log(urlPokemonItem);
       })
   }
 
