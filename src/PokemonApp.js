@@ -21,7 +21,7 @@ class PokemonApp extends React.Component {
       .then((response) => {
         const next = response.data.next
         const pokemons = response.data.results; 
-        this.setState({ pokemons });
+        this.setState({ pokemons, next });
       })
   }
 
