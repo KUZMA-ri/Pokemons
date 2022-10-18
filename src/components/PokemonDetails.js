@@ -5,10 +5,6 @@ const PokemonDetails = (props) => {
     const {pokemonDetails} = props;
     const { id, name, sprites, getMore} = pokemonDetails;
 
-
-    // const imgPrev = `${sprites.front_default.slice(0, -5)}${id - 1}.png`
-    // const imgNext = `${sprites.back_default.slice(0, -5)}${id + 1}.png`
-
     return(
         <div className={styles.pokemon__details}>
             <div className={styles.pokemon__wrapper}>
@@ -25,21 +21,6 @@ const PokemonDetails = (props) => {
                         src={sprites.back_default} 
                         alt='pic'>
                     </img>
-                </div>
-
-                <div className={styles.pokemon__buttons}>
-                    <button 
-                        className={styles.pokemon__prev}
-                        onClick={() => {
-
-
-                        }}>Previous</button>
-
-                    <button 
-                        className={styles.pokemon__next}
-                        onClick={() => {
-
-                        }}>Next</button>
                 </div>
             </div>
         </div>
